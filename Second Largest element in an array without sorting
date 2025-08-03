@@ -1,0 +1,27 @@
+// TC - O(2N)
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int largestNum(int arr[], int n){
+    int largest = arr[0];
+    int sLargest = -1;
+     for(int i=1;i<n;i++){
+         if(largest<arr[i]){
+             largest=arr[i];
+         }
+     }
+     for(int i=0;i<n;i++){
+         if(sLargest<arr[i] && arr[i]<largest){
+             sLargest=arr[i];
+         }
+     }
+     return sLargest;
+}
+using namespace std;
+int main() {
+    int arr[] = {3,2,6,5,2};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int largest = largestNum(arr, n);
+    cout << largest;
+    return 0;
+}
