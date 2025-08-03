@@ -1,4 +1,4 @@
-// Brute Force
+// Brute Force - TC - O(n)
 #include <iostream>
 #include <algorithm>
 using namespace std;
@@ -6,6 +6,28 @@ int largestNum(int arr[], int n){
      
      sort(arr, arr+n);
      return arr[n-1];
+}
+using namespace std;
+int main() {
+    int arr[] = {3,2,1,5,2};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int largest = largestNum(arr, n);
+    cout << largest;
+    return 0;
+}
+
+// Optimal - TC - O(n)
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int largestNum(int arr[], int n){
+    int largest = arr[0];
+     for(int i=1;i<n;i++){
+         if(largest<arr[i]){
+             largest=arr[i];
+         }
+     }
+     return largest;
 }
 using namespace std;
 int main() {
