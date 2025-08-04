@@ -1,0 +1,42 @@
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+        int n = nums.size();
+        int largest = nums[0];
+        int smallest = INT_MAX;
+        for(int i=0;i<n;i++){
+            if(largest<nums[i]){
+                largest = nums[i];
+            }
+        }
+        for(int i=0;i<n;i++){
+            if(nums[i] < smallest){
+                smallest=nums[i];
+            }
+        }
+        int num, num2;
+        int j;
+        int l=0;
+        for(int i=0;i<n-1;i++){
+            num=nums[i]+1;
+            j=i+1;
+            num2=nums[j];
+            if(num == num2){
+                continue;
+            }
+            else if(nums[i]<=nums[j]){
+                continue;
+            }
+            else if(nums[i]==largest && num2==smallest && l==0){
+                l++;
+                continue;
+                
+                
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
+};
